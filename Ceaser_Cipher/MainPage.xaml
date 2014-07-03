@@ -1,0 +1,782 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:controlsToolkit="clr-namespace:System.Windows.Controls;assembly=System.Windows.Controls.Toolkit"
+	x:Class="Ceaser_Cipher.MainPage"
+	Width="800" Height="600" FontFamily="Courier New" Background="White" mc:Ignorable="d">
+
+	<Grid x:Name="LayoutRoot" Background="#FF2891E6">
+		<Border Height="192" Margin="4,8,152,0" VerticalAlignment="Top" BorderBrush="Black" BorderThickness="1" Background="White">
+			<TextBlock x:Name="orgCypherText" Height="175" Margin="8,8,7,0" VerticalAlignment="Top" TextWrapping="Wrap" FontSize="18.667" />
+		</Border>
+		<Border Margin="4,224,152,184" BorderBrush="Black" BorderThickness="1" Background="White">
+			<TextBlock x:Name="userCypherText" Margin="8,7,7,7" TextWrapping="Wrap" d:LayoutOverrides="VerticalAlignment" FontSize="18.667"/>
+		</Border>
+		<Button x:Name="Answer" Height="24" HorizontalAlignment="Right" Margin="0,0,8,184" VerticalAlignment="Bottom" Width="128" Content="Answer" Click="displayAnswer"/>
+		
+		
+		<Rectangle Fill="Black" Stroke="Black" Height="4" Margin="4,212,152,0" VerticalAlignment="Top"/>
+		<Border x:Name="DecryptBorder" Height="172" VerticalAlignment="Bottom" BorderBrush="Black" BorderThickness="1" Margin="8,0,8,8">
+			<Grid x:Name="DecryptGrid" Margin="7">
+				<ComboBox x:Name="ComboBoxA" HorizontalAlignment="Left" Margin="8,8,0,0" VerticalAlignment="Top" Width="48" Height="36" FontSize="24" SelectionChanged="selectIonChanged" Tag="0">
+					<ComboBoxItem Content="A"/>
+					<ComboBoxItem Content="B"/>
+					<ComboBoxItem Content="C"/>
+					<ComboBoxItem Content="D"/>
+					<ComboBoxItem Content="E"/>
+					<ComboBoxItem Content="F"/>
+					<ComboBoxItem Content="G"/>
+					<ComboBoxItem Content="H"/>
+					<ComboBoxItem Content="I"/>
+					<ComboBoxItem Content="J"/>
+					<ComboBoxItem Content="K"/>
+					<ComboBoxItem Content="L"/>
+					<ComboBoxItem Content="M"/>
+					<ComboBoxItem Content="N"/>
+					<ComboBoxItem Content="O"/>
+					<ComboBoxItem Content="P"/>
+					<ComboBoxItem Content="Q"/>
+					<ComboBoxItem Content="R"/>
+					<ComboBoxItem Content="S"/>
+					<ComboBoxItem Content="T"/>
+					<ComboBoxItem Content="U"/>
+					<ComboBoxItem Content="V"/>
+					<ComboBoxItem Content="W"/>
+					<ComboBoxItem Content="X"/>
+					<ComboBoxItem Content="Y"/>
+					<ComboBoxItem Content="Z"/>
+				</ComboBox>
+				<TextBox x:Name="textBoxA" HorizontalAlignment="Left" Margin="8,48,0,76" Width="48" Text="A" TextWrapping="Wrap" TextAlignment="Center" FontSize="24" IsReadOnly="True"/>
+				<ComboBox x:Name="ComboBoxN" HorizontalAlignment="Left" Margin="8,0,0,36" Width="48" Height="36" VerticalAlignment="Bottom" FontSize="24" Tag="13" SelectionChanged="selectIonChanged">
+					<ComboBoxItem Content="A"/>
+					<ComboBoxItem Content="B"/>
+					<ComboBoxItem Content="C"/>
+					<ComboBoxItem Content="D"/>
+					<ComboBoxItem Content="E"/>
+					<ComboBoxItem Content="F"/>
+					<ComboBoxItem Content="G"/>
+					<ComboBoxItem Content="H"/>
+					<ComboBoxItem Content="I"/>
+					<ComboBoxItem Content="J"/>
+					<ComboBoxItem Content="K"/>
+					<ComboBoxItem Content="L"/>
+					<ComboBoxItem Content="M"/>
+					<ComboBoxItem Content="N"/>
+					<ComboBoxItem Content="O"/>
+					<ComboBoxItem Content="P"/>
+					<ComboBoxItem Content="Q"/>
+					<ComboBoxItem Content="R"/>
+					<ComboBoxItem Content="S"/>
+					<ComboBoxItem Content="T"/>
+					<ComboBoxItem Content="U"/>
+					<ComboBoxItem Content="V"/>
+					<ComboBoxItem Content="W"/>
+					<ComboBoxItem Content="X"/>
+					<ComboBoxItem Content="Y"/>
+					<ComboBoxItem Content="Z"/>
+				</ComboBox>
+				<TextBox x:Name="textBoxN" FontSize="24" HorizontalAlignment="Left" Margin="8,0,0,0" Width="48" Text="N" TextAlignment="Center" TextWrapping="Wrap" Height="32" VerticalAlignment="Bottom" IsReadOnly="True"/>
+				<ComboBox x:Name="ComboBoxB" HorizontalAlignment="Left" Margin="60,8,0,0" VerticalAlignment="Top" Width="48" Height="36" FontSize="24" Tag="1" SelectionChanged="selectIonChanged">
+					<ComboBoxItem Content="A"/>
+					<ComboBoxItem Content="B"/>
+					<ComboBoxItem Content="C"/>
+					<ComboBoxItem Content="D"/>
+					<ComboBoxItem Content="E"/>
+					<ComboBoxItem Content="F"/>
+					<ComboBoxItem Content="G"/>
+					<ComboBoxItem Content="H"/>
+					<ComboBoxItem Content="I"/>
+					<ComboBoxItem Content="J"/>
+					<ComboBoxItem Content="K"/>
+					<ComboBoxItem Content="L"/>
+					<ComboBoxItem Content="M"/>
+					<ComboBoxItem Content="N"/>
+					<ComboBoxItem Content="O"/>
+					<ComboBoxItem Content="P"/>
+					<ComboBoxItem Content="Q"/>
+					<ComboBoxItem Content="R"/>
+					<ComboBoxItem Content="S"/>
+					<ComboBoxItem Content="T"/>
+					<ComboBoxItem Content="U"/>
+					<ComboBoxItem Content="V"/>
+					<ComboBoxItem Content="W"/>
+					<ComboBoxItem Content="X"/>
+					<ComboBoxItem Content="Y"/>
+					<ComboBoxItem Content="Z"/>
+				</ComboBox>
+				<TextBox x:Name="textBoxB" FontSize="24" HorizontalAlignment="Left" Margin="60,48,0,76" Width="48" Text="B" TextAlignment="Center" TextWrapping="Wrap" IsReadOnly="True"/>
+				<ComboBox x:Name="ComboBoxO" HorizontalAlignment="Left" Margin="60,0,0,36" Width="48" Height="36" VerticalAlignment="Bottom" FontSize="24" Tag="14" SelectionChanged="selectIonChanged">
+					<ComboBoxItem Content="A"/>
+					<ComboBoxItem Content="B"/>
+					<ComboBoxItem Content="C"/>
+					<ComboBoxItem Content="D"/>
+					<ComboBoxItem Content="E"/>
+					<ComboBoxItem Content="F"/>
+					<ComboBoxItem Content="G"/>
+					<ComboBoxItem Content="H"/>
+					<ComboBoxItem Content="I"/>
+					<ComboBoxItem Content="J"/>
+					<ComboBoxItem Content="K"/>
+					<ComboBoxItem Content="L"/>
+					<ComboBoxItem Content="M"/>
+					<ComboBoxItem Content="N"/>
+					<ComboBoxItem Content="O"/>
+					<ComboBoxItem Content="P"/>
+					<ComboBoxItem Content="Q"/>
+					<ComboBoxItem Content="R"/>
+					<ComboBoxItem Content="S"/>
+					<ComboBoxItem Content="T"/>
+					<ComboBoxItem Content="U"/>
+					<ComboBoxItem Content="V"/>
+					<ComboBoxItem Content="W"/>
+					<ComboBoxItem Content="X"/>
+					<ComboBoxItem Content="Y"/>
+					<ComboBoxItem Content="Z"/>
+				</ComboBox>
+				<TextBox x:Name="textBoxO" FontSize="24" HorizontalAlignment="Left" Margin="60,0,0,0" Width="48" Text="O" TextAlignment="Center" TextWrapping="Wrap" Height="32" VerticalAlignment="Bottom" IsReadOnly="True"/>
+				<ComboBox x:Name="ComboBoxC" HorizontalAlignment="Left" Margin="112,8,0,0" VerticalAlignment="Top" Width="48" Height="36" FontSize="24" Tag="2" SelectionChanged="selectIonChanged">
+					<ComboBoxItem Content="A"/>
+					<ComboBoxItem Content="B"/>
+					<ComboBoxItem Content="C"/>
+					<ComboBoxItem Content="D"/>
+					<ComboBoxItem Content="E"/>
+					<ComboBoxItem Content="F"/>
+					<ComboBoxItem Content="G"/>
+					<ComboBoxItem Content="H"/>
+					<ComboBoxItem Content="I"/>
+					<ComboBoxItem Content="J"/>
+					<ComboBoxItem Content="K"/>
+					<ComboBoxItem Content="L"/>
+					<ComboBoxItem Content="M"/>
+					<ComboBoxItem Content="N"/>
+					<ComboBoxItem Content="O"/>
+					<ComboBoxItem Content="P"/>
+					<ComboBoxItem Content="Q"/>
+					<ComboBoxItem Content="R"/>
+					<ComboBoxItem Content="S"/>
+					<ComboBoxItem Content="T"/>
+					<ComboBoxItem Content="U"/>
+					<ComboBoxItem Content="V"/>
+					<ComboBoxItem Content="W"/>
+					<ComboBoxItem Content="X"/>
+					<ComboBoxItem Content="Y"/>
+					<ComboBoxItem Content="Z"/>
+				</ComboBox>
+				<TextBox x:Name="textBoxC" FontSize="24" HorizontalAlignment="Left" Margin="112,48,0,76" Width="48" Text="C" TextAlignment="Center" TextWrapping="Wrap" IsReadOnly="True"/>
+				<ComboBox x:Name="ComboBoxP" HorizontalAlignment="Left" Margin="112,0,0,36" Width="48" Height="36" VerticalAlignment="Bottom" FontSize="24" Tag="15" SelectionChanged="selectIonChanged">
+					<ComboBoxItem Content="A"/>
+					<ComboBoxItem Content="B"/>
+					<ComboBoxItem Content="C"/>
+					<ComboBoxItem Content="D"/>
+					<ComboBoxItem Content="E"/>
+					<ComboBoxItem Content="F"/>
+					<ComboBoxItem Content="G"/>
+					<ComboBoxItem Content="H"/>
+					<ComboBoxItem Content="I"/>
+					<ComboBoxItem Content="J"/>
+					<ComboBoxItem Content="K"/>
+					<ComboBoxItem Content="L"/>
+					<ComboBoxItem Content="M"/>
+					<ComboBoxItem Content="N"/>
+					<ComboBoxItem Content="O"/>
+					<ComboBoxItem Content="P"/>
+					<ComboBoxItem Content="Q"/>
+					<ComboBoxItem Content="R"/>
+					<ComboBoxItem Content="S"/>
+					<ComboBoxItem Content="T"/>
+					<ComboBoxItem Content="U"/>
+					<ComboBoxItem Content="V"/>
+					<ComboBoxItem Content="W"/>
+					<ComboBoxItem Content="X"/>
+					<ComboBoxItem Content="Y"/>
+					<ComboBoxItem Content="Z"/>
+				</ComboBox>
+				<TextBox x:Name="textBoxP" FontSize="24" HorizontalAlignment="Left" Margin="112,0,0,0" Width="48" Text="P" TextAlignment="Center" TextWrapping="Wrap" Height="32" VerticalAlignment="Bottom" IsReadOnly="True"/>
+				<ComboBox x:Name="ComboBoxD" HorizontalAlignment="Left" Margin="164,8,0,0" VerticalAlignment="Top" Width="48" Height="36" FontSize="24" Tag="3" SelectionChanged="selectIonChanged">
+					<ComboBoxItem Content="A"/>
+					<ComboBoxItem Content="B"/>
+					<ComboBoxItem Content="C"/>
+					<ComboBoxItem Content="D"/>
+					<ComboBoxItem Content="E"/>
+					<ComboBoxItem Content="F"/>
+					<ComboBoxItem Content="G"/>
+					<ComboBoxItem Content="H"/>
+					<ComboBoxItem Content="I"/>
+					<ComboBoxItem Content="J"/>
+					<ComboBoxItem Content="K"/>
+					<ComboBoxItem Content="L"/>
+					<ComboBoxItem Content="M"/>
+					<ComboBoxItem Content="N"/>
+					<ComboBoxItem Content="O"/>
+					<ComboBoxItem Content="P"/>
+					<ComboBoxItem Content="Q"/>
+					<ComboBoxItem Content="R"/>
+					<ComboBoxItem Content="S"/>
+					<ComboBoxItem Content="T"/>
+					<ComboBoxItem Content="U"/>
+					<ComboBoxItem Content="V"/>
+					<ComboBoxItem Content="W"/>
+					<ComboBoxItem Content="X"/>
+					<ComboBoxItem Content="Y"/>
+					<ComboBoxItem Content="Z"/>
+				</ComboBox>
+				<TextBox x:Name="textBoxD" FontSize="24" HorizontalAlignment="Left" Margin="164,48,0,76" Width="48" Text="D" TextAlignment="Center" TextWrapping="Wrap" IsReadOnly="True"/>
+				<ComboBox x:Name="ComboBoxQ" HorizontalAlignment="Left" Margin="164,0,0,36" Width="48" Height="36" VerticalAlignment="Bottom" FontSize="24" Tag="16" SelectionChanged="selectIonChanged">
+					<ComboBoxItem Content="A"/>
+					<ComboBoxItem Content="B"/>
+					<ComboBoxItem Content="C"/>
+					<ComboBoxItem Content="D"/>
+					<ComboBoxItem Content="E"/>
+					<ComboBoxItem Content="F"/>
+					<ComboBoxItem Content="G"/>
+					<ComboBoxItem Content="H"/>
+					<ComboBoxItem Content="I"/>
+					<ComboBoxItem Content="J"/>
+					<ComboBoxItem Content="K"/>
+					<ComboBoxItem Content="L"/>
+					<ComboBoxItem Content="M"/>
+					<ComboBoxItem Content="N"/>
+					<ComboBoxItem Content="O"/>
+					<ComboBoxItem Content="P"/>
+					<ComboBoxItem Content="Q"/>
+					<ComboBoxItem Content="R"/>
+					<ComboBoxItem Content="S"/>
+					<ComboBoxItem Content="T"/>
+					<ComboBoxItem Content="U"/>
+					<ComboBoxItem Content="V"/>
+					<ComboBoxItem Content="W"/>
+					<ComboBoxItem Content="X"/>
+					<ComboBoxItem Content="Y"/>
+					<ComboBoxItem Content="Z"/>
+				</ComboBox>
+				<TextBox x:Name="textBoxQ" FontSize="24" HorizontalAlignment="Left" Margin="164,0,0,0" Width="48" Text="Q" TextAlignment="Center" TextWrapping="Wrap" Height="32" VerticalAlignment="Bottom" IsReadOnly="True"/>
+				<ComboBox x:Name="ComboBoxE" HorizontalAlignment="Left" Margin="216,8,0,0" VerticalAlignment="Top" Width="48" Height="36" FontSize="24" Tag="4"  SelectionChanged="selectIonChanged">
+					<ComboBoxItem Content="A"/>
+					<ComboBoxItem Content="B"/>
+					<ComboBoxItem Content="C"/>
+					<ComboBoxItem Content="D"/>
+					<ComboBoxItem Content="E"/>
+					<ComboBoxItem Content="F"/>
+					<ComboBoxItem Content="G"/>
+					<ComboBoxItem Content="H"/>
+					<ComboBoxItem Content="I"/>
+					<ComboBoxItem Content="J"/>
+					<ComboBoxItem Content="K"/>
+					<ComboBoxItem Content="L"/>
+					<ComboBoxItem Content="M"/>
+					<ComboBoxItem Content="N"/>
+					<ComboBoxItem Content="O"/>
+					<ComboBoxItem Content="P"/>
+					<ComboBoxItem Content="Q"/>
+					<ComboBoxItem Content="R"/>
+					<ComboBoxItem Content="S"/>
+					<ComboBoxItem Content="T"/>
+					<ComboBoxItem Content="U"/>
+					<ComboBoxItem Content="V"/>
+					<ComboBoxItem Content="W"/>
+					<ComboBoxItem Content="X"/>
+					<ComboBoxItem Content="Y"/>
+					<ComboBoxItem Content="Z"/>
+				</ComboBox>
+				<TextBox x:Name="textBoxE" FontSize="24" HorizontalAlignment="Left" Margin="216,48,0,76" Width="48" Text="E" TextAlignment="Center" TextWrapping="Wrap" IsReadOnly="True"/>
+				<ComboBox x:Name="ComboBoxR" HorizontalAlignment="Left" Margin="216,0,0,36" Width="48" Height="36" VerticalAlignment="Bottom" FontSize="24" Tag="17" SelectionChanged="selectIonChanged">
+					<ComboBoxItem Content="A"/>
+					<ComboBoxItem Content="B"/>
+					<ComboBoxItem Content="C"/>
+					<ComboBoxItem Content="D"/>
+					<ComboBoxItem Content="E"/>
+					<ComboBoxItem Content="F"/>
+					<ComboBoxItem Content="G"/>
+					<ComboBoxItem Content="H"/>
+					<ComboBoxItem Content="I"/>
+					<ComboBoxItem Content="J"/>
+					<ComboBoxItem Content="K"/>
+					<ComboBoxItem Content="L"/>
+					<ComboBoxItem Content="M"/>
+					<ComboBoxItem Content="N"/>
+					<ComboBoxItem Content="O"/>
+					<ComboBoxItem Content="P"/>
+					<ComboBoxItem Content="Q"/>
+					<ComboBoxItem Content="R"/>
+					<ComboBoxItem Content="S"/>
+					<ComboBoxItem Content="T"/>
+					<ComboBoxItem Content="U"/>
+					<ComboBoxItem Content="V"/>
+					<ComboBoxItem Content="W"/>
+					<ComboBoxItem Content="X"/>
+					<ComboBoxItem Content="Y"/>
+					<ComboBoxItem Content="Z"/>
+				</ComboBox>
+				<TextBox x:Name="textBoxR" FontSize="24" HorizontalAlignment="Left" Margin="216,0,0,0" Width="48" Text="R" TextAlignment="Center" TextWrapping="Wrap" Height="32" VerticalAlignment="Bottom" IsReadOnly="True"/>
+				<ComboBox x:Name="ComboBoxF" HorizontalAlignment="Left" Margin="268,8,0,0" VerticalAlignment="Top" Width="48" Height="36" FontSize="24" Tag="5"  SelectionChanged="selectIonChanged">
+					<ComboBoxItem Content="A"/>
+					<ComboBoxItem Content="B"/>
+					<ComboBoxItem Content="C"/>
+					<ComboBoxItem Content="D"/>
+					<ComboBoxItem Content="E"/>
+					<ComboBoxItem Content="F"/>
+					<ComboBoxItem Content="G"/>
+					<ComboBoxItem Content="H"/>
+					<ComboBoxItem Content="I"/>
+					<ComboBoxItem Content="J"/>
+					<ComboBoxItem Content="K"/>
+					<ComboBoxItem Content="L"/>
+					<ComboBoxItem Content="M"/>
+					<ComboBoxItem Content="N"/>
+					<ComboBoxItem Content="O"/>
+					<ComboBoxItem Content="P"/>
+					<ComboBoxItem Content="Q"/>
+					<ComboBoxItem Content="R"/>
+					<ComboBoxItem Content="S"/>
+					<ComboBoxItem Content="T"/>
+					<ComboBoxItem Content="U"/>
+					<ComboBoxItem Content="V"/>
+					<ComboBoxItem Content="W"/>
+					<ComboBoxItem Content="X"/>
+					<ComboBoxItem Content="Y"/>
+					<ComboBoxItem Content="Z"/>
+				</ComboBox>
+				<TextBox x:Name="textBoxF" FontSize="24" HorizontalAlignment="Left" Margin="268,48,0,76" Width="48" Text="F" TextAlignment="Center" TextWrapping="Wrap" IsReadOnly="True"/>
+				<ComboBox x:Name="ComboBoxS" HorizontalAlignment="Left" Margin="268,0,0,36" Width="48" Height="36" VerticalAlignment="Bottom" FontSize="24"  Tag="18" SelectionChanged="selectIonChanged">
+					<ComboBoxItem Content="A"/>
+					<ComboBoxItem Content="B"/>
+					<ComboBoxItem Content="C"/>
+					<ComboBoxItem Content="D"/>
+					<ComboBoxItem Content="E"/>
+					<ComboBoxItem Content="F"/>
+					<ComboBoxItem Content="G"/>
+					<ComboBoxItem Content="H"/>
+					<ComboBoxItem Content="I"/>
+					<ComboBoxItem Content="J"/>
+					<ComboBoxItem Content="K"/>
+					<ComboBoxItem Content="L"/>
+					<ComboBoxItem Content="M"/>
+					<ComboBoxItem Content="N"/>
+					<ComboBoxItem Content="O"/>
+					<ComboBoxItem Content="P"/>
+					<ComboBoxItem Content="Q"/>
+					<ComboBoxItem Content="R"/>
+					<ComboBoxItem Content="S"/>
+					<ComboBoxItem Content="T"/>
+					<ComboBoxItem Content="U"/>
+					<ComboBoxItem Content="V"/>
+					<ComboBoxItem Content="W"/>
+					<ComboBoxItem Content="X"/>
+					<ComboBoxItem Content="Y"/>
+					<ComboBoxItem Content="Z"/>
+				</ComboBox>
+				<TextBox x:Name="textBoxS" FontSize="24" HorizontalAlignment="Left" Margin="268,0,0,0" Width="48" Text="S" TextAlignment="Center" TextWrapping="Wrap" Height="32" VerticalAlignment="Bottom" IsReadOnly="True"/>
+				<ComboBox x:Name="ComboBoxG" HorizontalAlignment="Left" Margin="320,8,0,0" VerticalAlignment="Top" Width="48" Height="36" FontSize="24" Tag="6"  SelectionChanged="selectIonChanged">
+					<ComboBoxItem Content="A"/>
+					<ComboBoxItem Content="B"/>
+					<ComboBoxItem Content="C"/>
+					<ComboBoxItem Content="D"/>
+					<ComboBoxItem Content="E"/>
+					<ComboBoxItem Content="F"/>
+					<ComboBoxItem Content="G"/>
+					<ComboBoxItem Content="H"/>
+					<ComboBoxItem Content="I"/>
+					<ComboBoxItem Content="J"/>
+					<ComboBoxItem Content="K"/>
+					<ComboBoxItem Content="L"/>
+					<ComboBoxItem Content="M"/>
+					<ComboBoxItem Content="N"/>
+					<ComboBoxItem Content="O"/>
+					<ComboBoxItem Content="P"/>
+					<ComboBoxItem Content="Q"/>
+					<ComboBoxItem Content="R"/>
+					<ComboBoxItem Content="S"/>
+					<ComboBoxItem Content="T"/>
+					<ComboBoxItem Content="U"/>
+					<ComboBoxItem Content="V"/>
+					<ComboBoxItem Content="W"/>
+					<ComboBoxItem Content="X"/>
+					<ComboBoxItem Content="Y"/>
+					<ComboBoxItem Content="Z"/>
+				</ComboBox>
+				<TextBox x:Name="textBoxG" FontSize="24" HorizontalAlignment="Left" Margin="320,48,0,76" Width="48" Text="G" TextAlignment="Center" TextWrapping="Wrap" IsReadOnly="True"/>
+				<ComboBox x:Name="ComboBoxT" HorizontalAlignment="Left" Margin="320,0,0,36" Width="48" Height="36" VerticalAlignment="Bottom" FontSize="24"  Tag="19" SelectionChanged="selectIonChanged">
+					<ComboBoxItem Content="A"/>
+					<ComboBoxItem Content="B"/>
+					<ComboBoxItem Content="C"/>
+					<ComboBoxItem Content="D"/>
+					<ComboBoxItem Content="E"/>
+					<ComboBoxItem Content="F"/>
+					<ComboBoxItem Content="G"/>
+					<ComboBoxItem Content="H"/>
+					<ComboBoxItem Content="I"/>
+					<ComboBoxItem Content="J"/>
+					<ComboBoxItem Content="K"/>
+					<ComboBoxItem Content="L"/>
+					<ComboBoxItem Content="M"/>
+					<ComboBoxItem Content="N"/>
+					<ComboBoxItem Content="O"/>
+					<ComboBoxItem Content="P"/>
+					<ComboBoxItem Content="Q"/>
+					<ComboBoxItem Content="R"/>
+					<ComboBoxItem Content="S"/>
+					<ComboBoxItem Content="T"/>
+					<ComboBoxItem Content="U"/>
+					<ComboBoxItem Content="V"/>
+					<ComboBoxItem Content="W"/>
+					<ComboBoxItem Content="X"/>
+					<ComboBoxItem Content="Y"/>
+					<ComboBoxItem Content="Z"/>
+				</ComboBox>
+				<TextBox x:Name="textBoxT" FontSize="24" HorizontalAlignment="Left" Margin="320,0,0,0" Width="48" Text="T" TextAlignment="Center" TextWrapping="Wrap" Height="32" VerticalAlignment="Bottom" IsReadOnly="True"/>
+				<ComboBox x:Name="ComboBoxH" Margin="372,8,348,0" VerticalAlignment="Top" Height="36" FontSize="24" Tag="7"  SelectionChanged="selectIonChanged">
+					<ComboBoxItem Content="A"/>
+					<ComboBoxItem Content="B"/>
+					<ComboBoxItem Content="C"/>
+					<ComboBoxItem Content="D"/>
+					<ComboBoxItem Content="E"/>
+					<ComboBoxItem Content="F"/>
+					<ComboBoxItem Content="G"/>
+					<ComboBoxItem Content="H"/>
+					<ComboBoxItem Content="I"/>
+					<ComboBoxItem Content="J"/>
+					<ComboBoxItem Content="K"/>
+					<ComboBoxItem Content="L"/>
+					<ComboBoxItem Content="M"/>
+					<ComboBoxItem Content="N"/>
+					<ComboBoxItem Content="O"/>
+					<ComboBoxItem Content="P"/>
+					<ComboBoxItem Content="Q"/>
+					<ComboBoxItem Content="R"/>
+					<ComboBoxItem Content="S"/>
+					<ComboBoxItem Content="T"/>
+					<ComboBoxItem Content="U"/>
+					<ComboBoxItem Content="V"/>
+					<ComboBoxItem Content="W"/>
+					<ComboBoxItem Content="X"/>
+					<ComboBoxItem Content="Y"/>
+					<ComboBoxItem Content="Z"/>
+				</ComboBox>
+				<TextBox x:Name="textBoxH" FontSize="24" Margin="372,48,348,76" Text="H" TextAlignment="Center" TextWrapping="Wrap" IsReadOnly="True"/>
+				<ComboBox x:Name="ComboBoxU" Margin="372,0,348,36" Height="36" VerticalAlignment="Bottom" FontSize="24"  Tag="20" SelectionChanged="selectIonChanged">
+					<ComboBoxItem Content="A"/>
+					<ComboBoxItem Content="B"/>
+					<ComboBoxItem Content="C"/>
+					<ComboBoxItem Content="D"/>
+					<ComboBoxItem Content="E"/>
+					<ComboBoxItem Content="F"/>
+					<ComboBoxItem Content="G"/>
+					<ComboBoxItem Content="H"/>
+					<ComboBoxItem Content="I"/>
+					<ComboBoxItem Content="J"/>
+					<ComboBoxItem Content="K"/>
+					<ComboBoxItem Content="L"/>
+					<ComboBoxItem Content="M"/>
+					<ComboBoxItem Content="N"/>
+					<ComboBoxItem Content="O"/>
+					<ComboBoxItem Content="P"/>
+					<ComboBoxItem Content="Q"/>
+					<ComboBoxItem Content="R"/>
+					<ComboBoxItem Content="S"/>
+					<ComboBoxItem Content="T"/>
+					<ComboBoxItem Content="U"/>
+					<ComboBoxItem Content="V"/>
+					<ComboBoxItem Content="W"/>
+					<ComboBoxItem Content="X"/>
+					<ComboBoxItem Content="Y"/>
+					<ComboBoxItem Content="Z"/>
+				</ComboBox>
+				<TextBox x:Name="textBoxU" FontSize="24" Margin="372,0,348,0" Text="U" TextAlignment="Center" TextWrapping="Wrap" Height="32" VerticalAlignment="Bottom" IsReadOnly="True"/>
+				<ComboBox x:Name="ComboBoxI" HorizontalAlignment="Right" Margin="0,8,296,0" VerticalAlignment="Top" Width="48" Height="36" FontSize="24" Tag="8" SelectionChanged="selectIonChanged">
+					<ComboBoxItem Content="A"/>
+					<ComboBoxItem Content="B"/>
+					<ComboBoxItem Content="C"/>
+					<ComboBoxItem Content="D"/>
+					<ComboBoxItem Content="E"/>
+					<ComboBoxItem Content="F"/>
+					<ComboBoxItem Content="G"/>
+					<ComboBoxItem Content="H"/>
+					<ComboBoxItem Content="I"/>
+					<ComboBoxItem Content="J"/>
+					<ComboBoxItem Content="K"/>
+					<ComboBoxItem Content="L"/>
+					<ComboBoxItem Content="M"/>
+					<ComboBoxItem Content="N"/>
+					<ComboBoxItem Content="O"/>
+					<ComboBoxItem Content="P"/>
+					<ComboBoxItem Content="Q"/>
+					<ComboBoxItem Content="R"/>
+					<ComboBoxItem Content="S"/>
+					<ComboBoxItem Content="T"/>
+					<ComboBoxItem Content="U"/>
+					<ComboBoxItem Content="V"/>
+					<ComboBoxItem Content="W"/>
+					<ComboBoxItem Content="X"/>
+					<ComboBoxItem Content="Y"/>
+					<ComboBoxItem Content="Z"/>
+				</ComboBox>
+				<TextBox x:Name="textBoxI" FontSize="24" HorizontalAlignment="Right" Margin="0,48,296,76" Width="48" Text="I" TextAlignment="Center" TextWrapping="Wrap" IsReadOnly="True"/>
+				<ComboBox x:Name="ComboBoxV" HorizontalAlignment="Right" Margin="0,0,296,36" Width="48" Height="36" VerticalAlignment="Bottom" FontSize="24" Tag="21" SelectionChanged="selectIonChanged">
+					<ComboBoxItem Content="A"/>
+					<ComboBoxItem Content="B"/>
+					<ComboBoxItem Content="C"/>
+					<ComboBoxItem Content="D"/>
+					<ComboBoxItem Content="E"/>
+					<ComboBoxItem Content="F"/>
+					<ComboBoxItem Content="G"/>
+					<ComboBoxItem Content="H"/>
+					<ComboBoxItem Content="I"/>
+					<ComboBoxItem Content="J"/>
+					<ComboBoxItem Content="K"/>
+					<ComboBoxItem Content="L"/>
+					<ComboBoxItem Content="M"/>
+					<ComboBoxItem Content="N"/>
+					<ComboBoxItem Content="O"/>
+					<ComboBoxItem Content="P"/>
+					<ComboBoxItem Content="Q"/>
+					<ComboBoxItem Content="R"/>
+					<ComboBoxItem Content="S"/>
+					<ComboBoxItem Content="T"/>
+					<ComboBoxItem Content="U"/>
+					<ComboBoxItem Content="V"/>
+					<ComboBoxItem Content="W"/>
+					<ComboBoxItem Content="X"/>
+					<ComboBoxItem Content="Y"/>
+					<ComboBoxItem Content="Z"/>
+				</ComboBox>
+				<TextBox x:Name="textBoxV" FontSize="24" HorizontalAlignment="Right" Margin="0,0,296,0" Width="48" Text="V" TextAlignment="Center" TextWrapping="Wrap" Height="32" VerticalAlignment="Bottom" IsReadOnly="True"/>
+				<ComboBox x:Name="ComboBoxJ" HorizontalAlignment="Right" Margin="0,8,244,0" VerticalAlignment="Top" Width="48" Height="36" FontSize="24" Tag="9" SelectionChanged="selectIonChanged">
+					<ComboBoxItem Content="A"/>
+					<ComboBoxItem Content="B"/>
+					<ComboBoxItem Content="C"/>
+					<ComboBoxItem Content="D"/>
+					<ComboBoxItem Content="E"/>
+					<ComboBoxItem Content="F"/>
+					<ComboBoxItem Content="G"/>
+					<ComboBoxItem Content="H"/>
+					<ComboBoxItem Content="I"/>
+					<ComboBoxItem Content="J"/>
+					<ComboBoxItem Content="K"/>
+					<ComboBoxItem Content="L"/>
+					<ComboBoxItem Content="M"/>
+					<ComboBoxItem Content="N"/>
+					<ComboBoxItem Content="O"/>
+					<ComboBoxItem Content="P"/>
+					<ComboBoxItem Content="Q"/>
+					<ComboBoxItem Content="R"/>
+					<ComboBoxItem Content="S"/>
+					<ComboBoxItem Content="T"/>
+					<ComboBoxItem Content="U"/>
+					<ComboBoxItem Content="V"/>
+					<ComboBoxItem Content="W"/>
+					<ComboBoxItem Content="X"/>
+					<ComboBoxItem Content="Y"/>
+					<ComboBoxItem Content="Z"/>
+				</ComboBox>
+				<TextBox x:Name="textBoxJ" FontSize="24" HorizontalAlignment="Right" Margin="0,48,244,76" Width="48" Text="J" TextAlignment="Center" TextWrapping="Wrap" IsReadOnly="True"/>
+				<ComboBox x:Name="ComboBoxW" HorizontalAlignment="Right" Margin="0,0,244,36" Width="48" Height="36" VerticalAlignment="Bottom" FontSize="24" Tag="22" SelectionChanged="selectIonChanged">
+					<ComboBoxItem Content="A"/>
+					<ComboBoxItem Content="B"/>
+					<ComboBoxItem Content="C"/>
+					<ComboBoxItem Content="D"/>
+					<ComboBoxItem Content="E"/>
+					<ComboBoxItem Content="F"/>
+					<ComboBoxItem Content="G"/>
+					<ComboBoxItem Content="H"/>
+					<ComboBoxItem Content="I"/>
+					<ComboBoxItem Content="J"/>
+					<ComboBoxItem Content="K"/>
+					<ComboBoxItem Content="L"/>
+					<ComboBoxItem Content="M"/>
+					<ComboBoxItem Content="N"/>
+					<ComboBoxItem Content="O"/>
+					<ComboBoxItem Content="P"/>
+					<ComboBoxItem Content="Q"/>
+					<ComboBoxItem Content="R"/>
+					<ComboBoxItem Content="S"/>
+					<ComboBoxItem Content="T"/>
+					<ComboBoxItem Content="U"/>
+					<ComboBoxItem Content="V"/>
+					<ComboBoxItem Content="W"/>
+					<ComboBoxItem Content="X"/>
+					<ComboBoxItem Content="Y"/>
+					<ComboBoxItem Content="Z"/>
+				</ComboBox>
+				<TextBox x:Name="textBoxW" FontSize="24" HorizontalAlignment="Right" Margin="0,0,244,0" Width="48" Text="W" TextAlignment="Center" TextWrapping="Wrap" Height="32" VerticalAlignment="Bottom" IsReadOnly="True"/>
+				<ComboBox x:Name="ComboBoxK" HorizontalAlignment="Right" Margin="0,8,192,0" VerticalAlignment="Top" Width="48" Height="36" FontSize="24" Tag="10" SelectionChanged="selectIonChanged">
+					<ComboBoxItem Content="A"/>
+					<ComboBoxItem Content="B"/>
+					<ComboBoxItem Content="C"/>
+					<ComboBoxItem Content="D"/>
+					<ComboBoxItem Content="E"/>
+					<ComboBoxItem Content="F"/>
+					<ComboBoxItem Content="G"/>
+					<ComboBoxItem Content="H"/>
+					<ComboBoxItem Content="I"/>
+					<ComboBoxItem Content="J"/>
+					<ComboBoxItem Content="K"/>
+					<ComboBoxItem Content="L"/>
+					<ComboBoxItem Content="M"/>
+					<ComboBoxItem Content="N"/>
+					<ComboBoxItem Content="O"/>
+					<ComboBoxItem Content="P"/>
+					<ComboBoxItem Content="Q"/>
+					<ComboBoxItem Content="R"/>
+					<ComboBoxItem Content="S"/>
+					<ComboBoxItem Content="T"/>
+					<ComboBoxItem Content="U"/>
+					<ComboBoxItem Content="V"/>
+					<ComboBoxItem Content="W"/>
+					<ComboBoxItem Content="X"/>
+					<ComboBoxItem Content="Y"/>
+					<ComboBoxItem Content="Z"/>
+				</ComboBox>
+				<TextBox x:Name="textBoxK" FontSize="24" HorizontalAlignment="Right" Margin="0,48,192,76" Width="48" Text="K" TextAlignment="Center" TextWrapping="Wrap" IsReadOnly="True"/>
+				<ComboBox x:Name="ComboBoxX" HorizontalAlignment="Right" Margin="0,0,192,36" Width="48" Height="36" VerticalAlignment="Bottom" FontSize="24" Tag="23" SelectionChanged="selectIonChanged">
+					<ComboBoxItem Content="A"/>
+					<ComboBoxItem Content="B"/>
+					<ComboBoxItem Content="C"/>
+					<ComboBoxItem Content="D"/>
+					<ComboBoxItem Content="E"/>
+					<ComboBoxItem Content="F"/>
+					<ComboBoxItem Content="G"/>
+					<ComboBoxItem Content="H"/>
+					<ComboBoxItem Content="I"/>
+					<ComboBoxItem Content="J"/>
+					<ComboBoxItem Content="K"/>
+					<ComboBoxItem Content="L"/>
+					<ComboBoxItem Content="M"/>
+					<ComboBoxItem Content="N"/>
+					<ComboBoxItem Content="O"/>
+					<ComboBoxItem Content="P"/>
+					<ComboBoxItem Content="Q"/>
+					<ComboBoxItem Content="R"/>
+					<ComboBoxItem Content="S"/>
+					<ComboBoxItem Content="T"/>
+					<ComboBoxItem Content="U"/>
+					<ComboBoxItem Content="V"/>
+					<ComboBoxItem Content="W"/>
+					<ComboBoxItem Content="X"/>
+					<ComboBoxItem Content="Y"/>
+					<ComboBoxItem Content="Z"/>
+				</ComboBox>
+				<TextBox x:Name="textBoxX" FontSize="24" HorizontalAlignment="Right" Margin="0,0,192,0" Width="48" Text="X" TextAlignment="Center" TextWrapping="Wrap" Height="32" VerticalAlignment="Bottom" IsReadOnly="True"/>
+				<ComboBox x:Name="ComboBoxL" HorizontalAlignment="Right" Margin="0,8,140,0" VerticalAlignment="Top" Width="48" Height="36" FontSize="24" Tag="11" SelectionChanged="selectIonChanged">
+					<ComboBoxItem Content="A"/>
+					<ComboBoxItem Content="B"/>
+					<ComboBoxItem Content="C"/>
+					<ComboBoxItem Content="D"/>
+					<ComboBoxItem Content="E"/>
+					<ComboBoxItem Content="F"/>
+					<ComboBoxItem Content="G"/>
+					<ComboBoxItem Content="H"/>
+					<ComboBoxItem Content="I"/>
+					<ComboBoxItem Content="J"/>
+					<ComboBoxItem Content="K"/>
+					<ComboBoxItem Content="L"/>
+					<ComboBoxItem Content="M"/>
+					<ComboBoxItem Content="N"/>
+					<ComboBoxItem Content="O"/>
+					<ComboBoxItem Content="P"/>
+					<ComboBoxItem Content="Q"/>
+					<ComboBoxItem Content="R"/>
+					<ComboBoxItem Content="S"/>
+					<ComboBoxItem Content="T"/>
+					<ComboBoxItem Content="U"/>
+					<ComboBoxItem Content="V"/>
+					<ComboBoxItem Content="W"/>
+					<ComboBoxItem Content="X"/>
+					<ComboBoxItem Content="Y"/>
+					<ComboBoxItem Content="Z"/>
+				</ComboBox>
+				<TextBox x:Name="textBoxL" FontSize="24" HorizontalAlignment="Right" Margin="0,48,140,76" Width="48" Text="L" TextAlignment="Center" TextWrapping="Wrap" IsReadOnly="True"/>
+				<ComboBox x:Name="ComboBoxY" HorizontalAlignment="Right" Margin="0,0,140,36" Width="48" Height="36" VerticalAlignment="Bottom" FontSize="24" Tag="24" SelectionChanged="selectIonChanged">
+					<ComboBoxItem Content="A"/>
+					<ComboBoxItem Content="B"/>
+					<ComboBoxItem Content="C"/>
+					<ComboBoxItem Content="D"/>
+					<ComboBoxItem Content="E"/>
+					<ComboBoxItem Content="F"/>
+					<ComboBoxItem Content="G"/>
+					<ComboBoxItem Content="H"/>
+					<ComboBoxItem Content="I"/>
+					<ComboBoxItem Content="J"/>
+					<ComboBoxItem Content="K"/>
+					<ComboBoxItem Content="L"/>
+					<ComboBoxItem Content="M"/>
+					<ComboBoxItem Content="N"/>
+					<ComboBoxItem Content="O"/>
+					<ComboBoxItem Content="P"/>
+					<ComboBoxItem Content="Q"/>
+					<ComboBoxItem Content="R"/>
+					<ComboBoxItem Content="S"/>
+					<ComboBoxItem Content="T"/>
+					<ComboBoxItem Content="U"/>
+					<ComboBoxItem Content="V"/>
+					<ComboBoxItem Content="W"/>
+					<ComboBoxItem Content="X"/>
+					<ComboBoxItem Content="Y"/>
+					<ComboBoxItem Content="Z"/>
+				</ComboBox>
+				<TextBox x:Name="textBoxY" FontSize="24" HorizontalAlignment="Right" Margin="0,0,140,0" Width="48" Text="Y" TextAlignment="Center" TextWrapping="Wrap" Height="32" VerticalAlignment="Bottom" IsReadOnly="True"/>
+				<ComboBox x:Name="ComboBoxM" HorizontalAlignment="Right" Margin="0,8,88,0" VerticalAlignment="Top" Width="48" Height="36" FontSize="24" Tag="12" SelectionChanged="selectIonChanged">
+					<ComboBoxItem Content="A"/>
+					<ComboBoxItem Content="B"/>
+					<ComboBoxItem Content="C"/>
+					<ComboBoxItem Content="D"/>
+					<ComboBoxItem Content="E"/>
+					<ComboBoxItem Content="F"/>
+					<ComboBoxItem Content="G"/>
+					<ComboBoxItem Content="H"/>
+					<ComboBoxItem Content="I"/>
+					<ComboBoxItem Content="J"/>
+					<ComboBoxItem Content="K"/>
+					<ComboBoxItem Content="L"/>
+					<ComboBoxItem Content="M"/>
+					<ComboBoxItem Content="N"/>
+					<ComboBoxItem Content="O"/>
+					<ComboBoxItem Content="P"/>
+					<ComboBoxItem Content="Q"/>
+					<ComboBoxItem Content="R"/>
+					<ComboBoxItem Content="S"/>
+					<ComboBoxItem Content="T"/>
+					<ComboBoxItem Content="U"/>
+					<ComboBoxItem Content="V"/>
+					<ComboBoxItem Content="W"/>
+					<ComboBoxItem Content="X"/>
+					<ComboBoxItem Content="Y"/>
+					<ComboBoxItem Content="Z"/>
+				</ComboBox>
+				<TextBox x:Name="textBoxM" FontSize="24" HorizontalAlignment="Right" Margin="0,48,88,76" Width="48" Text="M" TextAlignment="Center" TextWrapping="Wrap" IsReadOnly="True"/>
+				<ComboBox x:Name="ComboBoxZ" HorizontalAlignment="Right" Margin="0,0,88,36" Width="48" Height="36" VerticalAlignment="Bottom" FontSize="24" Tag="25" SelectionChanged="selectIonChanged">
+					<ComboBoxItem Content="A"/>
+					<ComboBoxItem Content="B"/>
+					<ComboBoxItem Content="C"/>
+					<ComboBoxItem Content="D"/>
+					<ComboBoxItem Content="E"/>
+					<ComboBoxItem Content="F"/>
+					<ComboBoxItem Content="G"/>
+					<ComboBoxItem Content="H"/>
+					<ComboBoxItem Content="I"/>
+					<ComboBoxItem Content="J"/>
+					<ComboBoxItem Content="K"/>
+					<ComboBoxItem Content="L"/>
+					<ComboBoxItem Content="M"/>
+					<ComboBoxItem Content="N"/>
+					<ComboBoxItem Content="O"/>
+					<ComboBoxItem Content="P"/>
+					<ComboBoxItem Content="Q"/>
+					<ComboBoxItem Content="R"/>
+					<ComboBoxItem Content="S"/>
+					<ComboBoxItem Content="T"/>
+					<ComboBoxItem Content="U"/>
+					<ComboBoxItem Content="V"/>
+					<ComboBoxItem Content="W"/>
+					<ComboBoxItem Content="X"/>
+					<ComboBoxItem Content="Y"/>
+					<ComboBoxItem Content="Z"/>
+				</ComboBox>
+				<TextBox x:Name="textBoxZ" FontSize="24" HorizontalAlignment="Right" Margin="0,0,88,0" Width="48" Text="Z" TextAlignment="Center" TextWrapping="Wrap" Height="32" VerticalAlignment="Bottom" IsReadOnly="True"/>
+			</Grid>
+		</Border>
+		<Button x:Name="New" Height="24" HorizontalAlignment="Right" Margin="0,224,8,0" VerticalAlignment="Top" Width="128" Content="New Cipher" Click="NewCypher"/>
+		<Button x:Name="Reset" HorizontalAlignment="Right" VerticalAlignment="Bottom" Width="128" Content="Reset  Cipher" Margin="0,0,8,272" Height="24" Click="resetCipher"/>
+		
+		
+	</Grid>
+</UserControl>
